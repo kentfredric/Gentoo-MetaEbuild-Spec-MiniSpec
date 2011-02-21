@@ -2,8 +2,32 @@ use strict;
 use warnings;
 
 package Gentoo::MetaEbuild::Spec::MiniSpec;
+BEGIN {
+  $Gentoo::MetaEbuild::Spec::MiniSpec::VERSION = '0.1.0';
+}
 
 # ABSTRACT: Minimal Conforming spec for MetaEbuilds.
+
+
+use Moose;
+extends 'Gentoo::MetaEbuild::Spec::Base';
+
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
+1;
+
+__END__
+=pod
+
+=head1 NAME
+
+Gentoo::MetaEbuild::Spec::MiniSpec - Minimal Conforming spec for MetaEbuilds.
+
+=head1 VERSION
+
+version 0.1.0
 
 =head1 SYNOPSIS
 
@@ -11,11 +35,6 @@ package Gentoo::MetaEbuild::Spec::MiniSpec;
     if( Gentoo::MetaEbuild::Spec::MiniSpec->check( json_decode( scalar slurp( $file ) ) ) ){
         print "$file is metaspec compliant\n";
     }
-
-=cut
-
-use Moose;
-extends 'Gentoo::MetaEbuild::Spec::Base';
 
 =head1 DESCRIPTION
 
@@ -52,9 +71,16 @@ Everything outside that is governed by the .json files shipped in this distribut
         version   => "Module Version String",    # required
     }
 
+=head1 AUTHOR
+
+Kent Fredric <kentnl@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Kent Fredric <kentnl@cpan.org>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
 =cut
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
-
-1;
