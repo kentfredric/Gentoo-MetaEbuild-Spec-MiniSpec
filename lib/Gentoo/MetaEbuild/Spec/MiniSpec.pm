@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+
 package Gentoo::MetaEbuild::Spec::MiniSpec;
 
 # ABSTRACT: Minimal Conforming spec for MetaEbuilds.
@@ -18,7 +19,7 @@ extends 'Gentoo::MetaEbuild::Spec::Base';
 
 =head1 DESCRIPTION
 
-Most the work for this module is performed by the parent class L<Gentoo::MetaEbuild::Spec::Base>.
+Most the work for this module is performed by the parent class L<< C<::Spec::Base>|Gentoo::MetaEbuild::Spec::Base >>.
 
 Everything outside that is governed by the .json files shipped in this distributions "Share" directory.
 
@@ -53,8 +54,7 @@ Everything outside that is governed by the .json files shipped in this distribut
 
 =cut
 
-
-
 __PACKAGE__->meta->make_immutable;
+no Moose;
 
 1;
